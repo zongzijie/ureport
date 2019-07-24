@@ -546,9 +546,9 @@ function buildConditions(conditions){
         for(let condition of conditions){
             if(!condition.type || condition.type==='property'){
                 if(condition.left){
-                    cellXml+=`<condition property="${condition.left}" op="${encode(condition.operation)}" id="${condition.id}"`;
+                    cellXml+=`<condition property="${condition.left}" op="${encode(condition.operation || condition.op)}" id="${condition.id}"`;
                 }else{
-                    cellXml+=`<condition op="${encode(condition.operation)}" id="${condition.id}"`;
+                    cellXml+=`<condition op="${encode(condition.operation || condition.op)}" id="${condition.id}"`;
                 }
                 cellXml+=` type="${condition.type}"`;
                 if(condition.join && size>1){
@@ -558,7 +558,7 @@ function buildConditions(conditions){
                 }
                 cellXml+=`<value><![CDATA[${condition.right}]]></value>`;
             }else{
-                cellXml+=`<condition type="${condition.type}" op="${encode(condition.operation)}" id="${condition.id}"`;
+                cellXml+=`<condition type="${condition.type}" op="${encode(condition.operation || condition.op)}" id="${condition.id}"`;
                 if(condition.join && size>1){
                     cellXml+=` join="${condition.join}">`;
                 }else{
