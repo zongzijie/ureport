@@ -184,6 +184,7 @@ export default class DatabaseTree extends BaseTree{
         }
         $.ajax({
             url:window._server+"/datasource/buildFields",
+            type:'POST',
             data: {
                 sql: dataset.sql,
                 parameters: JSON.stringify(dataset.parameters),
