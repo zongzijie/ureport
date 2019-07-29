@@ -62,6 +62,8 @@ public class HideRowColumnBuilder {
 				}
 			}else{
 				cell=fetchPrevColumnCell(report, colNumber-2, row);
+				if(cell==null)
+					continue;
 				int colSpan=cell.getColSpan();
 				if(colSpan>0){
 					colSpan--;
